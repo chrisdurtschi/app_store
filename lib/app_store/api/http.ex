@@ -8,6 +8,10 @@ defmodule AppStore.API.HTTP do
     perform_request(api_config, token, :get, path, nil)
   end
 
+  def post(%Config{} = api_config, token, path) do
+    perform_request(api_config, token, :post, path, nil)
+  end
+
   def put(%Config{} = api_config, token, path, body) do
     perform_request(api_config, token, :put, path, body)
   end

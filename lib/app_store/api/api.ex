@@ -3,7 +3,12 @@ defmodule AppStore.API do
   The main module to interact with the App Store Server APIs
   """
 
-  alias AppStore.API.{TransactionHistory, SubscriptionStatus, ConsumptionInformation}
+  alias AppStore.API.{
+    TransactionHistory,
+    SubscriptionStatus,
+    ConsumptionInformation,
+    ServerNotification
+  }
 
   defdelegate get_transaction_history(
                 api_config,
@@ -18,4 +23,7 @@ defmodule AppStore.API do
 
   defdelegate send_consumption_information(api_config, token, original_transaction_id, body),
     to: ConsumptionInformation
+
+  defdelegate request_test_notification(api_config, token),
+    to: ServerNotification
 end
